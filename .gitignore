@@ -32,3 +32,6 @@ google-services.json
 
 # Signing files
 .signing/
+
+# Demo project
+demo/
