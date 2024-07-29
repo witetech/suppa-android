@@ -50,7 +50,10 @@ internal fun UserInput(
                     onFocusChanged = { focusState ->
                         textFieldFocusState = focusState
                     },
-                    onMessageSent = onMessageSent,
+                    onMessageSent = {
+                        onMessageSent(it)
+                        textState = TextFieldValue()
+                    },
                 )
 
                 if (textState.text.isEmpty() && !textFieldFocusState) {
