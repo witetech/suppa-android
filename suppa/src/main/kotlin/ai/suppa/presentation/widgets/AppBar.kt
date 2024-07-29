@@ -92,7 +92,7 @@ private fun AppBarPreview() {
     SuppaTheme {
         AppBar(
             title = "Suppa",
-            description = "Hello World!",
+            description = "Suppa is a chat application",
             backgroundColor = Color.DarkGray,
             textColor = Color.White,
         )
