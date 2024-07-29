@@ -13,5 +13,9 @@ internal class ChatViewModel(
 
     sealed interface State {
         data object Loading : State
+
+        data class Error(val message: String) : State
+
+        data class Content(val a: String) : State
     }
 }

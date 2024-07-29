@@ -1,6 +1,9 @@
 <resources>
     <string name="cd_back_button">Back</string>
     <string name="cd_branding_icon">Suppa Icon</string>
+    <string name="cd_send_button">Send</string>
     <string name="branding_part_1">Powered by</string>
     <string name="branding_part_2">Suppa</string>
+    <string name="user_input_hint">Type a message…</string>
+    <string name="retry_button">Try Again</string>
 </resources>
