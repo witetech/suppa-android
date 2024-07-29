@@ -26,7 +26,13 @@ internal class ChatActivity : ComponentActivity() {
                 when (state) {
                     is State.Loading -> LoadingScaffold()
                     is State.Error -> ErrorScaffold(state = state as State.Error)
-                    is State.Content -> ContentScaffold(content = state as State.Content)
+                    is State.Content -> ContentScaffold(
+                        content = state as State.Content,
+                        onBackButtonClick = { finish() },
+                        onMessageSent = { message ->
+                            lifecycleScope.launch { viewModel.addMessage(message) }
+                        },
+                    )
                 }
             }
         }

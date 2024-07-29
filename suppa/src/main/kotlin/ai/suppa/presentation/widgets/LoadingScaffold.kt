@@ -17,10 +17,9 @@ internal fun LoadingScaffold() {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Pulsating {
                 Image(
-                    modifier =
-                        Modifier
-                            .width(48.dp)
-                            .padding(innerPadding),
+                    modifier = Modifier
+                        .width(48.dp)
+                        .padding(innerPadding),
                     painter = painterResource(id = R.drawable.ic_suppa),
                     contentDescription = stringResource(id = R.string.cd_branding_icon),
                 )

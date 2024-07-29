@@ -39,6 +39,7 @@ internal class ChatViewModel(
                     config = mapChatResponseToConfig(getChatResponse, apiKey, chatId),
                     theme = mapChatResponseToTheme(getChatResponse),
                     messages = mapChatResponseToMessages(getChatResponse),
+                    loading = false,
                 )
             }
         } catch (e: Exception) {
@@ -47,7 +48,7 @@ internal class ChatViewModel(
         }
     }
 
-    suspend fun reloadChat() {
+    private suspend fun reloadChat() {
         val currentState = stateDelegate.state.value as? State.Content ?: return
         try {
             val getChatResponse = suppaService.getChat(
@@ -64,6 +65,7 @@ internal class ChatViewModel(
                     ),
                     theme = mapChatResponseToTheme(getChatResponse),
                     messages = mapChatResponseToMessages(getChatResponse),
+                    loading = false,
                 )
             }
         } catch (e: Exception) {
@@ -87,6 +89,7 @@ internal class ChatViewModel(
                     role = Message.Role.USER,
                     createdAt = Date(),
                 ),
+                loading = true,
             )
         }
 
@@ -144,7 +147,7 @@ internal class ChatViewModel(
                     createdAt = DateUtils.parseDate(it.createdAt!!),
                 )
             }
-        } ?: arrayListOf()
+        }?.filter { it.content.content != null } ?: arrayListOf()
     }
 
     private fun mapAddMessageResponseOutputToMessageContent(output: AddMessageResponse.Output): MessageContent {
@@ -174,6 +177,7 @@ internal class ChatViewModel(
             val config: Config,
             val theme: Theme,
             val messages: List<Message>,
+            val loading: Boolean,
         ) : State
     }
 }

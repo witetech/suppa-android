@@ -5,11 +5,9 @@ import ai.suppa.presentation.ChatViewModel.State
 import ai.suppa.presentation.theme.SuppaTheme
 import ai.suppa.presentation.utils.ColorUtils
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -28,12 +26,8 @@ internal fun ContentScaffold(
             AppBar(
                 title = content.config.name,
                 description = content.config.description,
-                backgroundColor = content.theme.colorHex?.let {
-                    ColorUtils.hexToColor(it)
-                } ?: Color.Black,
-                textColor = content.theme.textColorHex?.let {
-                    ColorUtils.hexToColor(it)
-                } ?: Color.White,
+                backgroundColor = ColorUtils.hexToColor(content.theme.colorHex),
+                textColor = ColorUtils.hexToColor(content.theme.textColorHex),
                 onBackButtonClick = onBackButtonClick,
             )
         },
@@ -43,19 +37,20 @@ internal fun ContentScaffold(
                 .fillMaxSize()
                 .padding(innerPadding),
         ) {
-            LazyColumn(modifier = Modifier.weight(1f)) {
-            }
+            Messages(
+                modifier = Modifier.weight(1f),
+                messages = content.messages,
+                backgroundColor = ColorUtils.hexToColor(content.theme.colorHex),
+                textColor = ColorUtils.hexToColor(content.theme.textColorHex),
+                loading = content.loading,
+            )
 
             UserInput(
                 modifier = Modifier
                     .navigationBarsPadding()
                     .imePadding(),
-                backgroundColor = content.theme.colorHex?.let {
-                    ColorUtils.hexToColor(it)
-                } ?: Color.Black,
-                iconColor = content.theme.textColorHex?.let {
-                    ColorUtils.hexToColor(it)
-                } ?: Color.White,
+                backgroundColor = ColorUtils.hexToColor(content.theme.colorHex),
+                iconColor = ColorUtils.hexToColor(content.theme.textColorHex),
                 showBranding = !content.theme.removeBranding,
                 onMessageSent = onMessageSent,
             )
@@ -83,6 +78,7 @@ fun ContentScaffoldPreview() {
                     removeBranding = false,
                 ),
                 messages = arrayListOf(),
+                loading = false,
             ),
         )
     }
