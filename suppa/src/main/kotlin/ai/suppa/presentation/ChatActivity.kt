@@ -9,14 +9,17 @@ import androidx.activity.*
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 internal class ChatActivity : ComponentActivity() {
     private val viewModel by viewModels<ChatViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val apiKey = intent.getStringExtra(API_KEY) ?: throw IllegalArgumentException()
         enableEdgeToEdge()
+        val apiKey = intent.getStringExtra(API_KEY) ?: throw IllegalArgumentException()
+        lifecycleScope.launch { viewModel.createChat(apiKey) }
         setContent {
             SuppaTheme {
                 val state by viewModel.state.collectAsStateWithLifecycle()
