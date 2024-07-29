@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.ktor.serialization)
     implementation(libs.material)
     implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.protolite.well.known.types)
     debugImplementation(libs.androidx.ui.test.manifest)
     debugImplementation(libs.androidx.ui.tooling)
 }

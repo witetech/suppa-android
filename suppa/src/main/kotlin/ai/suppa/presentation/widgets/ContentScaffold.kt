@@ -82,6 +82,7 @@ fun ContentScaffoldPreview() {
                     imageBase64 = null,
                     removeBranding = false,
                 ),
+                messages = arrayListOf(),
             ),
         )
     }
