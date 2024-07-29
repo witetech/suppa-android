@@ -3,8 +3,6 @@ package ai.suppa.presentation
 import ai.suppa.presentation.ChatViewModel.State
 import ai.suppa.presentation.theme.SuppaTheme
 import ai.suppa.presentation.widgets.*
-import ai.suppa.presentation.widgets.ErrorScaffold
-import ai.suppa.presentation.widgets.LoadingScaffold
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.*
@@ -17,6 +15,7 @@ internal class ChatActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val apiKey = intent.getStringExtra(API_KEY) ?: throw IllegalArgumentException()
         enableEdgeToEdge()
         setContent {
             SuppaTheme {
@@ -31,8 +30,15 @@ internal class ChatActivity : ComponentActivity() {
     }
 
     companion object {
-        fun newIntent(activity: ComponentActivity): Intent {
-            return Intent(activity, ChatActivity::class.java)
+        private const val API_KEY = "apiKey"
+
+        fun newIntent(
+            activity: ComponentActivity,
+            apiKey: String,
+        ): Intent {
+            return Intent(activity, ChatActivity::class.java).apply {
+                putExtra(API_KEY, apiKey)
+            }
         }
     }
 }
