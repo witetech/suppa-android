@@ -93,8 +93,8 @@ private fun AppBarPreview() {
         AppBar(
             title = "Suppa",
             description = "Hello World!",
-            backgroundColor = Color.Yellow,
-            textColor = Color.Red,
+            backgroundColor = Color.DarkGray,
+            textColor = Color.White,
         )
     }
 }
