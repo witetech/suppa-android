@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        launchSuppa(apiKey = "3e1c4e57-f8e5-48cd-a8e6-b48bf83229ae")
+        launchSuppa(apiKey = "your-api-key")
     }
 }
 ```
