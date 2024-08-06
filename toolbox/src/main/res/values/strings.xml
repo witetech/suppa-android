@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Suppa</string>
+    <string name="loading">Loading</string>
+    <string name="toolbar_title">Suppa Toolbox</string>
+</resources>

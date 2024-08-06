@@ -23,4 +23,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "suppa-android"
-include(":suppa", ":demo")
+include(":suppa", ":toolbox")
