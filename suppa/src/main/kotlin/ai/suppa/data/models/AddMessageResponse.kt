@@ -16,5 +16,7 @@ internal data class AddMessageResponse(
         val type: String? = null,
         @SerialName("value")
         val value: String? = null,
+        @SerialName("options")
+        val options: List<String?>? = null,
     )
 }
