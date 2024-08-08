@@ -77,5 +77,5 @@ dependencies {
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.serialization)
     implementation(libs.protolite.well.known.types)
-    implementation(libs.suppa)
+    implementation(project(":suppa"))
 }
