@@ -6,6 +6,7 @@ coreKtx = "1.13.1"
 kotlin = "2.0.0"
 ktor = "2.3.12"
 lifecycleRuntimeKtx = "2.8.4"
+markwon = "4.6.2"
 material = "1.12.0"
 protoliteWellKnownTypes = "18.0.0"
 suppa = "0.0.1"
@@ -27,6 +28,7 @@ ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-conte
 ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
 ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
 ktor-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+markwon-core = { group = "io.noties.markwon", name = "core", version.ref = "markwon" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 protolite-well-known-types = { group = "com.google.firebase", name = "protolite-well-known-types", version.ref = "protoliteWellKnownTypes" }
 suppa = { group = "ai.suppa", name = "suppa-android", version.ref = "suppa" }

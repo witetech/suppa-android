@@ -79,10 +79,10 @@ private fun Message(
                 RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp, bottomEnd = 8.dp)
             },
         ) {
-            Text(
+            MarkdownText(
                 modifier = Modifier.padding(all = 12.dp),
                 text = message.content.content!!,
-                color = textColor,
+                textColor = textColor,
             )
         }
 
